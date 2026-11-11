@@ -1,95 +1,140 @@
-# FitPlanner — Personal Gym Planner
+# 💪 FitPlanner — Personal Gym Planner
 
-FitPlanner adalah website React untuk membantu pengguna membuat profil kebugaran awal, menghitung BMI, mendapatkan saran latihan sesuai profil, melihat demonstrasi gerakan, mengelola jadwal gym, dan mencatat perkembangan latihan.
+**FitPlanner** adalah website personal gym planner berbasis React yang dirancang untuk membantu pengguna mengatur aktivitas kebugaran secara lebih terstruktur. Website ini menyediakan fitur pembuatan profil kebugaran, perhitungan Body Mass Index (BMI), rekomendasi latihan berdasarkan kondisi tubuh dan pengalaman gym, serta pemantauan perkembangan latihan.
 
-## Teknologi
+FitPlanner bertujuan membantu pengguna merencanakan aktivitas gym sesuai dengan kebutuhan dan kemampuan masing-masing.
 
-- React 18 + Vite
-- JavaScript (JSX)
-- React Router DOM
-- React Hooks dan Context API
-- Props dan PropTypes
-- Lucide React untuk ikon
-- CSS responsif
-- `localStorage` untuk penyimpanan lokal di browser
+---
 
-## Menjalankan proyek
+## ✨ Fitur Utama
 
-Pastikan Node.js dan npm sudah terpasang. Buka terminal pada folder proyek, lalu jalankan:
+### 1. User Onboarding
+Pengguna harus melengkapi profil sebelum menggunakan website, meliputi:
+- Nama pengguna.
+- Usia.
+- Gender.
+- Berat badan.
+- Tinggi badan.
+- Tingkat pengalaman gym.
+- Frekuensi latihan dalam satu minggu.
 
-```bash
-npm install
-npm run dev
-```
+### 2. BMI Calculator
+Website menghitung BMI secara otomatis berdasarkan berat dan tinggi badan pengguna.
 
-Buka URL lokal yang ditampilkan Vite (biasanya `http://localhost:5173`). Untuk build produksi:
+Rumus perhitungan:
 
-```bash
-npm run build
-npm run preview
-```
+\[
+BMI = \frac{Berat\ Badan\ (kg)}{Tinggi\ Badan\ (m)^2}
+\]
 
-## Alur pertama kali membuka website
+Hasil perhitungan digunakan untuk memberikan gambaran kondisi berat badan dan rekomendasi aktivitas kebugaran.
 
-1. **Profil awal** — pengguna mengisi nama, usia, dan gender. Ini merupakan onboarding lokal, bukan autentikasi akun dengan password/server.
-2. **Data tubuh** — pengguna mengisi berat badan (kg) dan tinggi badan (cm). Website menghitung BMI secara otomatis.
-3. **Pengalaman dan frekuensi** — pengguna memilih Pemula, Menengah, atau Berpengalaman, lalu memilih 1–6 hari gym per minggu.
-4. **Ringkasan rekomendasi** — pengguna melihat fokus latihan dan rancangan jadwal awal.
-5. **Exercise Library** — setelah onboarding selesai, pengguna langsung diarahkan ke halaman ini untuk mencari/filter gerakan, melihat gerakan yang direkomendasikan untuk rencana mingguannya, membaca instruksi, dan menonton video demonstrasi untuk setiap gerakan.
+Kategori BMI dewasa:
+- Di bawah 18,5: Berat badan kurang.
+- 18,5–24,9: Berat badan normal.
+- 25–29,9: Berat badan berlebih.
+- 30 atau lebih: Obesitas.
 
-## Logika personalisasi latihan
+**Catatan:** Kategori BMI dewasa hanya digunakan untuk pengguna berusia 20 tahun ke atas. Untuk pengguna berusia 2–19 tahun, penilaian memerlukan persentil BMI berdasarkan usia dan gender. BMI merupakan alat skrining, bukan diagnosis medis.
 
-- **BMI di bawah 18,5 (dewasa):** program lebih menekankan latihan kekuatan/resistance training untuk membangun otot; kardio dibuat ringan dan singkat.
-- **BMI 18,5 sampai kurang dari 25 (dewasa):** program menggabungkan latihan kekuatan dan kardio.
-- **BMI 25 sampai kurang dari 30 (dewasa):** program menambah porsi kardio berdampak rendah sambil mempertahankan latihan kekuatan.
-- **BMI 30 atau lebih (dewasa):** program mengutamakan kardio berdampak rendah secara bertahap dan tetap menyertakan latihan kekuatan ringan.
-- **Usia di bawah 20 tahun:** website menampilkan nilai BMI, tetapi tidak memberi label kategori BMI dewasa. Penilaian BMI usia 2–19 tahun memerlukan persentil berdasarkan usia dan gender.
+### 3. Personalized Workout Recommendation
+Rekomendasi latihan disesuaikan dengan:
+- Hasil perhitungan BMI.
+- Tingkat pengalaman gym.
+- Frekuensi latihan mingguan.
+- Kebutuhan dan tujuan kebugaran.
 
-BMI adalah alat skrining, bukan diagnosis dan bukan ukuran komposisi tubuh. Hasilnya perlu dilihat bersama faktor kesehatan lain. Karena rekomendasi volume latihan tidak sebaiknya ditentukan dari gender saja, gender disimpan pada profil, sedangkan set, repetisi, durasi, dan pembagian latihan ditentukan terutama dari pengalaman, frekuensi latihan, dan fokus BMI. Pengguna tetap perlu menyesuaikan beban dengan kemampuan aktualnya.
+Pengguna dapat memilih tingkat pengalaman:
+- **Beginner:** Pemula.
+- **Intermediate:** Menengah.
+- **Advanced:** Berpengalaman.
 
-### Penyesuaian berdasarkan pengalaman
+Intensitas, jumlah set, repetisi, dan durasi latihan disesuaikan berdasarkan tingkat pengalaman serta kemampuan pengguna.
 
-- **Pemula:** umumnya mulai dari 2 set dengan rentang repetisi dasar, alat yang stabil, dan durasi kardio yang lebih singkat.
-- **Menengah:** umumnya 3 set dengan volume dan durasi sedikit lebih tinggi.
-- **Berpengalaman:** umumnya 3 set dengan variasi repetisi yang lebih menantang; beban harus tetap dapat dikontrol dengan teknik yang benar.
+### 4. Exercise Library
+Menyediakan kumpulan latihan gym beserta informasi penggunaannya.
 
-Frekuensi gym dipakai untuk menyusun pembagian hari. Rencana merupakan contoh awal, bukan program medis atau pengganti arahan pelatih. Sisakan hari pemulihan dan berhenti jika mengalami nyeri atau gejala yang tidak biasa.
+Fitur:
+- Daftar latihan berdasarkan kelompok otot.
+- Informasi peralatan gym.
+- Pencarian dan filter latihan.
+- Petunjuk penggunaan alat dan gerakan.
+- Video demonstrasi untuk membantu pengguna memahami teknik latihan.
+- Rekomendasi latihan sesuai profil pengguna.
 
-## Fitur website
+### 5. Workout Plan
+Pengguna dapat mengelola program latihan dengan fitur:
+- Menambahkan program latihan.
+- Mengedit program latihan.
+- Menghapus program latihan.
+- Melihat detail program latihan.
+- Mengatur kelompok otot yang ingin dilatih.
 
-1. **Onboarding** — profil nama, gender, usia, tinggi, berat, BMI, pengalaman, dan frekuensi gym.
-2. **Dashboard** — statistik, target mingguan, jadwal mendatang, dan aktivitas terbaru.
-3. **Workout Plan** — tambah, edit, hapus, cari program, serta melihat rekomendasi jadwal yang dipersonalisasi.
-4. **Exercise Library** — 13 gerakan yang dapat dicari dan difilter berdasarkan kelompok otot/peralatan; setiap gerakan mempunyai video demonstrasi dan petunjuk langkah.
-5. **Schedule** — tambah, edit, hapus, dan tandai jadwal sebagai selesai.
-6. **Workout History** — riwayat latihan yang diselesaikan.
-7. **Progress Tracking** — catat berat badan dan lihat grafik perkembangan.
-8. **Goals** — atur target latihan mingguan dan target kebugaran.
-9. **Profile** — lihat dan ubah informasi pengguna; perubahan berat akan memperbarui BMI dan fokus rekomendasi.
+### 6. Workout Schedule
+Mengatur jadwal kegiatan gym berdasarkan hari dan tanggal.
 
-## Struktur folder
+Fitur:
+- Membuat jadwal latihan.
+- Mengubah jadwal.
+- Menghapus jadwal.
+- Menandai latihan sebagai selesai.
+
+### 7. Workout History
+Menampilkan catatan latihan yang telah diselesaikan oleh pengguna.
+
+### 8. Progress Tracking
+Membantu pengguna memantau perkembangan kebugaran melalui:
+- Pencatatan berat badan.
+- Grafik perkembangan berat badan.
+- Statistik aktivitas latihan.
+- Pemantauan pencapaian target.
+
+### 9. Fitness Goals
+Pengguna dapat menentukan target kebugaran, seperti frekuensi latihan mingguan dan target perkembangan fisik.
+
+### 10. User Profile
+Menampilkan dan mengelola informasi profil pengguna yang telah diisi pada tahap onboarding.
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+| Teknologi | Kegunaan |
+|---|---|
+| React 18 | Membangun antarmuka website |
+| Vite | Development server dan build project |
+| JavaScript (JSX) | Logika dan fungsionalitas aplikasi |
+| React Router DOM | Navigasi antarhalaman |
+| React Hooks | Mengelola state dan lifecycle komponen |
+| Context API | Mengelola data profil dan aplikasi |
+| Props & PropTypes | Mengirim dan memvalidasi data komponen |
+| Lucide React | Menampilkan ikon |
+| CSS3 | Mengatur tampilan dan responsivitas |
+| localStorage | Menyimpan data secara lokal di browser |
+
+---
+
+## 📂 Struktur Folder
 
 ```text
-gym-planner/
+fitplanner/
+│
 ├── public/
+│   ├── fonts/
+│   ├── favicon.png
+│   └── favicon.svg
+│
 ├── src/
 │   ├── assets/
-│   │   └── fonts/
+│   │
 │   ├── components/
-│   │   ├── ExerciseCard.jsx
-│   │   ├── Modal.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Sidebar.jsx
-│   │   ├── StatCard.jsx
-│   │   ├── Toast.jsx
-│   │   └── WorkoutCard.jsx
+│   │
 │   ├── context/
-│   │   └── GymContext.jsx
+│   │
 │   ├── data/
-│   │   ├── exercises.js
-│   │   └── initialData.js
+│   │
 │   ├── layouts/
-│   │   └── MainLayout.jsx
+│   │
 │   ├── pages/
 │   │   ├── Dashboard.jsx
 │   │   ├── Exercise.jsx
@@ -101,53 +146,148 @@ gym-planner/
 │   │   ├── Progress.jsx
 │   │   ├── Schedule.jsx
 │   │   └── Workout.jsx
+│   │
 │   ├── utils/
 │   │   ├── dateUtils.js
 │   │   └── personalization.js
+│   │
 │   ├── App.jsx
 │   ├── index.css
 │   └── main.jsx
+│
 ├── index.html
 ├── package.json
-└── vite.config.js
+├── package-lock.json
+├── vite.config.js
+└── README.md
 ```
 
-## Font DaFont
+---
 
-Tampilan menggunakan **Bebas** untuk heading/display dan **Roboto** untuk isi teks. File font tidak disertakan dalam ZIP. Baca petunjuk `FONT-INSTALLATION.md` di folder utama atau `public/fonts/README.md`, unduh arsip dari DaFont, lalu salin file `.ttf` ke `public/fonts/`. Referensi font memakai jalur `/fonts/...`, sehingga aplikasi tetap dapat dibuka dengan font fallback meskipun file `.ttf` belum dipasang. Periksa README/lisensi di dalam setiap arsip sebelum font didistribusikan kembali.
+## 🚀 Instalasi dan Menjalankan Project
 
-## Video dan sumber materi
+### Persyaratan
+Pastikan perangkat sudah memiliki:
+- Node.js.
+- npm (Node Package Manager).
+- Visual Studio Code atau editor kode lainnya.
 
-Daftar alat/gerakan mengadaptasi materi pengenalan alat gym berikut:
+### 1. Clone Repository
 
-- [HelloSehat — Mengenal 10 Jenis Alat Gym dan Cara Menggunakannya](https://hellosehat.com/kebugaran/olahraga-lainnya/berbagai-alat-fitness-di-tempat-gym/)
-- [KYZN — Mengenai Alat Gym: Jenis, Cara Pakai, dan Kegunaannya](https://kyzn.life/blog/alat-gym-jenis-cara-pakai-dan-kegunaannya)
-- [IDN Times — 15 Nama Alat Gym serta Gambar, Fungsi, dan Cara Pakainya](https://www.idntimes.com/sport/arena/nama-alat-gym-serta-gambar-fungsi-dan-cara-pakainya-q9t03-00-qftxr-vdx8p9)
-- [SVRG — 25 Nama Alat Gym, Fungsi, dan Cara Menggunakannya](https://svrg.id/blogs/the-journey/nama-alat-gym)
-- [PureGym — Equipment How-To Videos](https://www.puregym.com/lets-get-started/workout-builder/equipment-how-tos/)
-- [UC Davis Health — Lat Pulldown for Beginners](https://www.youtube.com/watch?v=oMJmAHRZXBk)
-- [MuscleWiki — Triceps Pushdown](https://www.youtube.com/watch?v=w_viR9hVi4A)
-- [Shelley Darlington — Barbell Squat](https://www.youtube.com/watch?v=f-KL4VNN96E)
-- [Jack Hanrahan Fitness — Romanian Deadlift](https://www.youtube.com/watch?v=ZEnWV4kguKc)
-- [Runna — Plank Tutorial](https://www.youtube.com/watch?v=kSFvHo9p53Y)
-- [CDC — Adult BMI Categories](https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html)
-- [American Heart Association — Strength and Resistance Training Exercise](https://www.heart.org/en/healthy-living/fitness/fitness-basics/strength-and-resistance-training-exercise)
+```bash
+git clone https://github.com/yohanes-Tambunan/Thorplanner_Yohanes.git
+```
 
-Video merupakan konten pihak ketiga dari YouTube. Ketersediaan atau kemampuan embed dapat berubah; tombol untuk membuka video langsung di YouTube juga disediakan.
+### 2. Masuk ke Folder Project
 
-## Penyimpanan data
+```bash
+cd Thorplanner_Yohanes/fitplanner
+```
 
-Data disimpan di browser menggunakan key `fitplanner-data-v1`. Data tidak disinkronkan ke perangkat lain karena proyek ini belum memakai backend/database online. Untuk mengulang onboarding dari awal, buka Developer Tools → Application → Local Storage, hapus key tersebut, lalu refresh halaman.
+### 3. Install Dependencies
 
-## Jika halaman browser putih
+```bash
+npm install
+```
 
-1. Pastikan terminal masih menjalankan `npm run dev` dan tidak menampilkan error.
-2. Hentikan server dengan `Ctrl + C`.
-3. Jalankan `npm install` (jika belum pernah dilakukan), lalu `npm run dev -- --force`.
-4. Buka alamat localhost yang tampil di terminal, kemudian lakukan hard refresh dengan `Ctrl + Shift + R`.
-5. Jika masih putih, buka halaman di Chrome/Edge, tekan `F12`, pilih tab **Console**, refresh, lalu baca pesan merah pertama. Pesan itu biasanya menunjukkan modul atau baris kode yang gagal.
-6. Jika pesan menyebut `fitplanner-data-v1` atau data Local Storage, buka DevTools → Application → Local Storage → `http://localhost:5173`, hapus key `fitplanner-data-v1`, lalu refresh. Tindakan ini mereset data profil lokal dan onboarding.
+### 4. Jalankan Development Server
 
-Penting: file font DaFont yang belum diunduh tidak lagi menghalangi aplikasi tampil. Tanpa file `.ttf`, yang terjadi hanya fallback font yang digunakan.
-#   T h o r p l a n n e r _ Y o h a n e s  
- 
+```bash
+npm run dev
+```
+
+### 5. Buka Website
+
+Buka alamat lokal yang ditampilkan oleh Vite pada terminal, biasanya:
+
+```text
+http://localhost:5173/
+```
+
+### 6. Build untuk Production
+
+```bash
+npm run build
+```
+
+Untuk melihat hasil build secara lokal:
+
+```bash
+npm run preview
+```
+
+---
+
+## 📋 Alur Penggunaan Website
+
+1. Pengguna membuka FitPlanner.
+2. Pengguna mengisi profil awal berupa nama, usia, dan gender.
+3. Pengguna memasukkan berat badan dan tinggi badan.
+4. Sistem menghitung BMI secara otomatis.
+5. Pengguna memilih tingkat pengalaman gym dan frekuensi latihan per minggu.
+6. Sistem menampilkan rekomendasi latihan berdasarkan profil pengguna.
+7. Pengguna melihat daftar latihan, petunjuk gerakan, dan video demonstrasi.
+8. Pengguna membuat workout plan dan mengatur jadwal gym.
+9. Pengguna mencatat latihan yang telah diselesaikan.
+10. Pengguna memantau perkembangan melalui Progress Tracking.
+
+---
+
+## 💾 Penyimpanan Data
+
+FitPlanner menggunakan `localStorage` sebagai media penyimpanan data pada browser.
+
+Dengan mekanisme ini, data profil dan aktivitas pengguna dapat tetap tersedia ketika halaman dimuat ulang pada browser yang sama.
+
+**Catatan:** Project ini menggunakan penyimpanan lokal dan belum menggunakan backend maupun database online. Data tidak otomatis tersinkronisasi antarperangkat atau antar-browser.
+
+---
+
+## 🎨 Desain Antarmuka
+
+FitPlanner mengusung konsep desain modern dengan tema dark mode dan aksen warna hijau neon.
+
+Beberapa elemen desain yang diterapkan:
+- Tampilan dashboard yang informatif.
+- Navigasi menggunakan sidebar.
+- Komponen kartu untuk informasi latihan.
+- Tipografi Bebas untuk heading.
+- Tipografi Roboto untuk teks antarmuka.
+- Ikon menggunakan Lucide React.
+- Layout responsif untuk berbagai ukuran layar.
+
+Font lokal ditempatkan pada folder `public/fonts/`.
+
+---
+
+## 🎯 Tujuan Pengembangan
+
+Project ini dikembangkan sebagai implementasi pembelajaran pengembangan aplikasi web menggunakan React, khususnya dalam penerapan:
+
+- Component dan reusable component.
+- Props dan PropTypes.
+- State Management menggunakan React Hooks.
+- Conditional Rendering.
+- Rendering data menggunakan `.map()`.
+- React Router untuk navigasi halaman.
+- Context API untuk pengelolaan data.
+- Local Storage untuk penyimpanan data.
+- Pemisahan struktur folder dan komponen.
+
+---
+
+## 👨‍💻 Developer
+
+**Yohanes Tambunan**
+
+Program Studi S1 Teknik Informatika
+
+Universitas Riau
+
+Project Praktikum Pengembangan Web Menggunakan React.
+
+---
+
+<p align="center">
+  **FITPLANNER — BUILD YOUR STRENGTH, TRACK YOUR PROGRESS.** 💪
+</p>
