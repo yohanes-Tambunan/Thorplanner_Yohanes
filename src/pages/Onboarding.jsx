@@ -80,14 +80,14 @@ export default function Onboarding() {
   return (
     <main className="onboarding-shell">
       <aside className="onboarding-aside">
-        <div className="onboarding-brand"><span><Dumbbell size={23} /></span><strong>fitplanner<span>.</span></strong></div>
+        <div className="onboarding-brand"><span><Dumbbell size={23} /></span><strong>ThorPlanner<span>.</span></strong></div>
         <div className="onboarding-aside-copy">
           <p className="onboarding-kicker">YOUR TRAINING STARTS HERE</p>
           <h1>Build a routine<br />that <em>fits you.</em></h1>
           <p>Kenali profil tubuhmu, pilih ritme latihan, lalu mulai dengan rencana yang realistis.</p>
         </div>
         <div className="onboarding-quote"><span>“</span><p>Progress is personal.<br />Your plan should be, too.</p></div>
-        <div className="onboarding-aside-foot"><span>01 / PERSONAL FITNESS PROFILE</span><span>FITPLANNER © 2026</span></div>
+        <div className="onboarding-aside-foot"><span>01 / PERSONAL FITNESS PROFILE</span><span>ThorPlanner © 2026</span></div>
       </aside>
 
       <section className="onboarding-main">
@@ -96,7 +96,7 @@ export default function Onboarding() {
 
         {step === 1 && (
           <div className="onboarding-content">
-            <div className="onboarding-heading"><span className="onboard-icon"><UserRound size={20} /></span><p className="eyebrow">01 — ABOUT YOU</p><h2>Kenalan dulu, yuk.</h2><p>Isi profil dasar agar pengalaman FitPlanner terasa lebih personal.</p></div>
+            <div className="onboarding-heading"><span className="onboard-icon"><UserRound size={20} /></span><p className="eyebrow">01 — ABOUT YOU</p><h2>Kenalan dulu, yuk.</h2><p>Isi profil dasar agar pengalaman ThorPlanner terasa lebih personal.</p></div>
             <div className="onboard-form-grid">
               <Field label="Nama lengkap"><input autoFocus name="name" value={form.name} onChange={change} placeholder="Nama yang ingin kami gunakan" maxLength="50" /></Field>
               <Field label="Usia" hint="Dibutuhkan untuk menentukan cara membaca hasil BMI."><input name="age" type="number" min="13" max="100" value={form.age} onChange={change} placeholder="Contoh: 21" /></Field>
@@ -130,13 +130,13 @@ export default function Onboarding() {
             <div className="onboarding-heading"><span className="onboard-icon"><Zap size={20} /></span><p className="eyebrow">03 — TRAINING HABITS</p><h2>Atur ritme latihanmu.</h2><p>Kami akan menyesuaikan jumlah set, repetisi, dan pembagian latihan dari pilihan ini.</p></div>
             <Field label="Seberapa berpengalaman kamu di gym?"><div className="onboard-level-list">{levels.map((level) => <button key={level.value} type="button" className={`onboard-level ${form.experience === level.value ? 'selected' : ''}`} onClick={() => setForm((current) => ({ ...current, experience: level.value }))}><span className="level-number">{level.icon}</span><span className="level-copy"><strong>{level.title}</strong><small>{level.detail}</small></span><span className="choice-check">{form.experience === level.value ? <Check size={13} /> : null}</span></button>)}</div></Field>
             <Field label="Berapa kali seminggu kamu bisa ke gym?"><div className="frequency-grid">{[1, 2, 3, 4, 5, 6].map((value) => <button key={value} type="button" className={`frequency-option ${Number(form.weeklyFrequency) === value ? 'selected' : ''}`} onClick={() => setForm((current) => ({ ...current, weeklyFrequency: String(value) }))}><strong>{value}</strong><span>{value === 1 ? 'hari' : 'hari'}</span></button>)}</div></Field>
-            <p className="onboard-helper">Pilih jumlah hari yang realistis. Hari istirahat tetap bagian penting dari program latihan.</p>
+            <p className="onboard-helper">Pilihlah rencana dalam seminggu berapa kali kamu dapat latihan.</p>
           </div>
         )}
 
         {step === 4 && (
           <div className="onboarding-content">
-            <div className="onboarding-heading"><span className="onboard-icon"><HeartPulse size={20} /></span><p className="eyebrow">04 — YOUR STARTING PLAN</p><h2>Ini titik awalmu, {form.name.split(' ')[0]}.</h2><p>Ringkasan profil dan gambaran program yang akan kamu temukan di FitPlanner.</p></div>
+            <div className="onboarding-heading"><span className="onboard-icon"><HeartPulse size={20} /></span><p className="eyebrow">04 — YOUR STARTING PLAN</p><h2>Ini titik awalmu, {form.name.split(' ')[0]}.</h2><p>Ringkasan profil dan gambaran program yang akan kamu temukan di ThorPlanner.</p></div>
             <div className="onboard-summary-grid">
               <div><small>BODY MASS INDEX</small><strong>{bmi?.toFixed(1) || '—'}</strong><span>{bmiInfo.label}</span></div>
               <div><small>EXPERIENCE</small><strong>{form.experience}</strong><span>{form.weeklyFrequency} kali per minggu</span></div>
@@ -150,7 +150,7 @@ export default function Onboarding() {
         {error && <div className="onboard-error" role="alert">{error}</div>}
         <div className="onboarding-footer">
           {step > 1 ? <button type="button" className="button button-secondary" onClick={() => { setError(''); setStep((current) => current - 1); }}><ArrowLeft size={16} /> Kembali</button> : <span className="onboarding-secure">Data disimpan di browser perangkat ini.</span>}
-          {step < 4 ? <button type="button" className="button button-primary" onClick={goNext}>Lanjutkan <ArrowRight size={16} /></button> : <button type="button" className="button button-primary" onClick={finish}>Masuk ke FitPlanner <ArrowRight size={16} /></button>}
+          {step < 4 ? <button type="button" className="button button-primary" onClick={goNext}>Lanjutkan <ArrowRight size={16} /></button> : <button type="button" className="button button-primary" onClick={finish}>Masuk ke ThorPlanner <ArrowRight size={16} /></button>}
         </div>
       </section>
     </main>

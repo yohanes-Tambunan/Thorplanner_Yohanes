@@ -21,7 +21,7 @@ export default function Sidebar({ isOpen, onClose }) {
       <div className="sidebar-brand">
         <div className="brand-mark"><Dumbbell size={21} strokeWidth={2.5} /></div>
         <div className="brand-copy">
-          <span className="brand-name">fitplanner<span>.</span></span>
+          <span className="brand-name">ThorPlanner<span>.</span></span>
           <span className="brand-caption">PERSONAL FITNESS</span>
         </div>
         <button className="icon-button sidebar-close" type="button" onClick={onClose} aria-label="Tutup menu">

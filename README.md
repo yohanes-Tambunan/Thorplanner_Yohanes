@@ -1,8 +1,8 @@
-# 💪 FitPlanner — Personal Gym Planner
+# 💪 ThorPlanner — Personal Gym Planner
 
-**FitPlanner** adalah website personal gym planner berbasis React yang dirancang untuk membantu pengguna mengatur aktivitas kebugaran secara lebih terstruktur. Website ini menyediakan fitur pembuatan profil kebugaran, perhitungan Body Mass Index (BMI), rekomendasi latihan berdasarkan kondisi tubuh dan pengalaman gym, serta pemantauan perkembangan latihan.
+**ThorPlanner** adalah website personal gym planner berbasis React yang dirancang untuk membantu pengguna mengatur aktivitas kebugaran secara lebih terstruktur. Website ini menyediakan fitur pembuatan profil kebugaran, perhitungan Body Mass Index (BMI), rekomendasi latihan berdasarkan kondisi tubuh dan pengalaman gym, serta pemantauan perkembangan latihan.
 
-FitPlanner bertujuan membantu pengguna merencanakan aktivitas gym sesuai dengan kebutuhan dan kemampuan masing-masing.
+ThorPlanner bertujuan membantu pengguna merencanakan aktivitas gym sesuai dengan kebutuhan dan kemampuan masing-masing.
 
 ---
 
@@ -117,7 +117,7 @@ Menampilkan dan mengelola informasi profil pengguna yang telah diisi pada tahap 
 ## 📂 Struktur Folder
 
 ```text
-fitplanner/
+ThorPlanner/
 │
 ├── public/
 │   ├── fonts/
@@ -181,7 +181,7 @@ git clone https://github.com/yohanes-Tambunan/Thorplanner_Yohanes.git
 ### 2. Masuk ke Folder Project
 
 ```bash
-cd Thorplanner_Yohanes/fitplanner
+cd Thorplanner_Yohanes/ThorPlanner
 ```
 
 ### 3. Install Dependencies
@@ -220,7 +220,7 @@ npm run preview
 
 ## 📋 Alur Penggunaan Website
 
-1. Pengguna membuka FitPlanner.
+1. Pengguna membuka ThorPlanner.
 2. Pengguna mengisi profil awal berupa nama, usia, dan gender.
 3. Pengguna memasukkan berat badan dan tinggi badan.
 4. Sistem menghitung BMI secara otomatis.
@@ -235,7 +235,7 @@ npm run preview
 
 ## 💾 Penyimpanan Data
 
-FitPlanner menggunakan `localStorage` sebagai media penyimpanan data pada browser.
+ThorPlanner menggunakan `localStorage` sebagai media penyimpanan data pada browser.
 
 Dengan mekanisme ini, data profil dan aktivitas pengguna dapat tetap tersedia ketika halaman dimuat ulang pada browser yang sama.
 
@@ -245,7 +245,7 @@ Dengan mekanisme ini, data profil dan aktivitas pengguna dapat tetap tersedia ke
 
 ## 🎨 Desain Antarmuka
 
-FitPlanner mengusung konsep desain modern dengan tema dark mode dan aksen warna hijau neon.
+ThorPlanner mengusung konsep desain modern dengan tema dark mode dan aksen warna hijau neon.
 
 Beberapa elemen desain yang diterapkan:
 - Tampilan dashboard yang informatif.
@@ -289,5 +289,5 @@ Project Praktikum Pengembangan Web Menggunakan React.
 ---
 
 <p align="center">
-  **FITPLANNER — BUILD YOUR STRENGTH, TRACK YOUR PROGRESS.** 💪
+  **ThorPlanner — BUILD YOUR STRENGTH, TRACK YOUR PROGRESS.** 💪
 </p>

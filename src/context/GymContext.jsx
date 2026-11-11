@@ -3,7 +3,7 @@ import { createInitialData } from '../data/initialData';
 import { calculateBMI, getBMICategory } from '../utils/personalization';
 
 const GymContext = createContext(null);
-const STORAGE_KEY = 'fitplanner-data-v1';
+const STORAGE_KEY = 'ThorPlanner-data-v1';
 
 function readSavedData() {
   if (typeof window === 'undefined') return createInitialData();
@@ -35,7 +35,7 @@ export function GymProvider({ children }) {
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch (error) {
-      console.warn('Data FitPlanner tidak dapat disimpan ke localStorage.', error);
+      console.warn('Data ThorPlanner tidak dapat disimpan ke localStorage.', error);
     }
   }, [data]);
 
